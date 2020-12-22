@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Giới thiệu - Tài liệu WeMap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wemap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tài liệu WeMap" class="md-header-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tài liệu WeMap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Giới thiệu
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tài liệu WeMap" class="md-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tài liệu WeMap
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Trang chủ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      WeMap Web SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap Web SDK" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap Web SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Giới thiệu
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="wemap/" class="md-nav__link">
+      WeMap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="wegeocoder/" class="md-nav__link">
+      WeGeocoder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="wedirections/" class="md-nav__link">
+      WeDirections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="wefilter/" class="md-nav__link">
+      WeFilterControl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="GeoJSON/" class="md-nav__link">
+      GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="marker/" class="md-nav__link">
+      Marker
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      WeMap APIs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap APIs" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap APIs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Người dùng
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Người dùng" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Người dùng
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/account/account/" class="md-nav__link">
+      Tài khoản
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/account/key/" class="md-nav__link">
+      API Key
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/account/analytics/" class="md-nav__link">
+      Thống kê
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Hiển thị Bản đồ
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hiển thị Bản đồ" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
+        Hiển thị Bản đồ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/maps/raster-tiles/" class="md-nav__link">
+      Raster tiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/maps/vector-tiles/" class="md-nav__link">
+      Vector tiles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Địa điểm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Địa điểm" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Địa điểm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/geocode/search/" class="md-nav__link">
+      API Search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/geocode/reverse/" class="md-nav__link">
+      API Reverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/geocode/autocomplete/" class="md-nav__link">
+      API Autocomplete
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/geocode/pip/" class="md-nav__link">
+      API Địa danh hành chỉnh
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Chỉ đường
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Chỉ đường" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        <span class="md-nav__icon md-icon"></span>
+        Chỉ đường
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/routing/routing/" class="md-nav__link">
+      API dẫn đường
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/routing/bus/" class="md-nav__link">
+      API dẫn đường cho bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      Android SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Android SDK" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        <span class="md-nav__icon md-icon"></span>
+        Android SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/android-sdk/installing/" class="md-nav__link">
+      Cài đặt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/android-sdk/map/" class="md-nav__link">
+      Ví dụ Hiển thị bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/android-sdk/map-layer/" class="md-nav__link">
+      Ví dụ Thêm các lớp bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/android-sdk/geojson-layer/" class="md-nav__link">
+      Ví dụ Thêm GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/android-sdk/search/" class="md-nav__link">
+      Ví dụ Tìm kiếm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../APIs/android-sdk/direction/" class="md-nav__link">
+      Ví dụ Chỉ đường
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="wemap">WeMap</h1>
+<p><img alt="WeMap" src="/assets/images/logo_wemap.png" />
+Bản đồ số Việt Nam</p>
+<hr />
+<h1 id="wemap-web-sdk">WeMap Web SDK</h1>
+<p><strong>WeMap SDK</strong> (hay WeMap GL) là một bộ thư viện cho phép nhúng các bản đồ có tính tương tác vào các ứng dụng web, di động. Bản đồ WeMap GL hoạt động với chất lượng và hiệu năng cao. Chữ viết tắt "GL" xuất phát từ OpenGL, Thư viện đồ họa mở tiêu chuẩn công nghiệp.</p>
+<hr />
+<p>WeMap SDK hỗ trợ chính thức các nền tảng sau: Web (WeMap Web SDK, WeMap GL JS) sử dụng ngôn ngữ JavaScript.</p>
+<h2 id="gioi-thieu">Giới thiệu</h2>
+<p>Đây là trang đưa ra các <strong>ví dụ</strong>, <strong>hướng dẫn</strong> và <strong>tài liệu</strong> của <a href="#"><strong>WeMap Web SDK</strong></a> để bạn có thể bắt đầu sử dụng SDK của WeMap.</p>
+<p>WeMap Web SDK hay WeMap GL JS là một thư viện JavaScript sử dụng WebGL để hiển thị bản đồ có tính tương tác từ các <a href="#">vector tile</a> và <a href="#">WeMap style</a>. Nó là một phần của hệ sinh thái WeMap GL.</p>
+<hr />
+<h2 id="huong-dan-cai-at-va-su-dung">Hướng dẫn cài đặt và sử dụng</h2>
+<p>Bạn <code>clone</code> từ Github phiên bản mới nhất của thư viện <a href="https://github.com/WEMAP-Official/WeMap-Web-SDK-Release">tại đây</a>, sau đó nhúng vào trang web của bạn</p>
+<pre><code class="language-html">&lt;script src=&quot;&lt;đường dẫn tới repo&gt;/WeMap-Web-SDK-Release/assets/js/wemap-gl.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;&lt;đường dẫn tới repo&gt;/WeMap-Web-SDK-Release/assets/css/wemap.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+</code></pre>
+<p>Bạn cũng có thể tải trực tiếp file <code>.js</code> hoặc <code>.css</code> từ địa chỉ trên và đưa vào thư mục tuỳ ý của bạn.  </p>
+<p>Để sử dụng các dịch vụ của WeMap, bạn cần có một <em>key</em>. <a href="#">Liên hệ WeMap</a> để nhận một key.</p>
+<hr />
+<h2 id="cung-bat-au-voi-mot-vi-du-on-gian">Cùng bắt đầu với một ví dụ đơn giản</h2>
+<ul>
+<li>Thêm file <code>.js</code> và <code>.css</code> của thư viện vào header trang web của bạn giống như sau:  </li>
+</ul>
+<pre><code class="language-html">&lt;script src=&quot;https://raw.githubusercontent.com/WEMAP-Official/WeMap-Web-SDK-Release/master/assets/js/wemap-gl.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;https://raw.githubusercontent.com/WEMAP-Official/WeMap-Web-SDK-Release/master/assets/css/wemap.min.css&quot; rel=&quot;stylesheet&quot; /&gt;
+</code></pre>
+<ul>
+<li>Thêm một phần tử <code>div</code> với một <code>id</code> tại vị trí mà bạn muốn đặt bản đồ</li>
+</ul>
+<pre><code class="language-html"> &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>Hãy đảm bảo rằng phần tử <code>div</code> vừa thêm vào có thể hiển thị đúng cách</li>
+</ul>
+<pre><code class="language-html">&lt;style&gt;
+    #map { width: 700px; height: 500px; }
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>Khởi tạo và thêm bản đồ vào</li>
+</ul>
+<pre><code class="language-html">&lt;&gt;
+    var map = new wemapgl.WeMap({
+            container: 'map',
+            key: 'key-của-bạn'
+    });
+&lt;/&gt;
+</code></pre>
+<p>Như vậy, một bản đồ WeMap đã được thêm vào trang web của bạn. Hãy tận hưởng!</p>
+<p>Để sử dụng nhiều tính năng hơn, hãy đọc thêm về <em>các thành phần cơ bản</em> dưới đây</p>
+<hr />
+<h2 id="cac-thanh-phan-co-ban">Các thành phần cơ bản</h2>
+<h3 id="wemapglwemap"><a href="wemap/"><code>wemapgl.WeMap</code></a></h3>
+<p>Một đối tượng <code>WeMap</code> biểu diễn một bản đồ, cung cấp các giao diện lập trình để tạo ra các bản đồ có tính tương tác cao.</p>
+<hr />
+<h3 id="wemapglwegeocoder"><a href="wegeocoder/"><code>wemapgl.WeGeocoder</code></a></h3>
+<p>Một plugin Geocoding cho bản đồ WeMap, cho phép lựa chọn engine tìm kiếm, lấy thông tin chi tiết của địa điểm ...</p>
+<hr />
+<h3 id="wemapglwedirections"><a href="wedirections/"><code>wemapgl.WeDirections</code></a></h3>
+<p>Plugin cung cấp tính năng chỉ đường chất lượng cao cho bản đồ WeMap.</p>
+<hr />
+<h3 id="wemapglwefiltercontrol"><a href="wefilter/"><code>wemapgl.WeFilterControl</code></a></h3>
+<p>Một plugin cung cấp tính năng lọc và hiển thị các loại địa điểm cho bản đồ WeMap.</p>
+<hr />
+<h2 id="cach-tai-lieu-nay-uoc-tao-ra">Cách tài liệu này được tạo ra</h2>
+<p>Tài liệu này được ra với sự hỗ trợ của công cụ <a href="https://www.mkdocs.org/">MkDocs</a>.<br />
+Định dạng <code>.md</code> của tài liệu có thể lấy <a href="https://github.com/WEMAP-Official/WeMap-SDK-Documents">tại đây</a>.</p>
+<hr />
+<p><em>Cập nhật ngày 20 tháng 10 năm 2020</em></p>
+<p><em>Bản quyền thuộc về WeMap</em></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Trang chủ
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="wemap/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                WeMap
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2020 © WeMap
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

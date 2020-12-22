@@ -1,0 +1,1344 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>API Reverse - Tài liệu WeMap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reverse" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Tài liệu WeMap" class="md-header-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tài liệu WeMap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              API Reverse
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Tài liệu WeMap" class="md-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tài liệu WeMap
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
+      Trang chủ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      WeMap Web SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap Web SDK" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap Web SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wemap/" class="md-nav__link">
+      WeMap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wegeocoder/" class="md-nav__link">
+      WeGeocoder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wedirections/" class="md-nav__link">
+      WeDirections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wefilter/" class="md-nav__link">
+      WeFilterControl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/GeoJSON/" class="md-nav__link">
+      GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/marker/" class="md-nav__link">
+      Marker
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      WeMap APIs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap APIs" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap APIs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Người dùng
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Người dùng" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Người dùng
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../account/account/" class="md-nav__link">
+      Tài khoản
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../account/key/" class="md-nav__link">
+      API Key
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../account/analytics/" class="md-nav__link">
+      Thống kê
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Hiển thị Bản đồ
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hiển thị Bản đồ" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
+        Hiển thị Bản đồ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../maps/raster-tiles/" class="md-nav__link">
+      Raster tiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../maps/vector-tiles/" class="md-nav__link">
+      Vector tiles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Địa điểm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Địa điểm" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Địa điểm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../search/" class="md-nav__link">
+      API Search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        API Reverse
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      API Reverse
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vi-du-reverse-mot-ia-iem" class="md-nav__link">
+    Ví dụ reverse một địa điểm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phan-hoi" class="md-nav__link">
+    Phản hồi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cac-ma-loi-cua-api-reverse" class="md-nav__link">
+    Các mã lỗi của API Reverse
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../autocomplete/" class="md-nav__link">
+      API Autocomplete
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pip/" class="md-nav__link">
+      API Địa danh hành chỉnh
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Chỉ đường
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Chỉ đường" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        <span class="md-nav__icon md-icon"></span>
+        Chỉ đường
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../routing/routing/" class="md-nav__link">
+      API dẫn đường
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../routing/bus/" class="md-nav__link">
+      API dẫn đường cho bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      Android SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Android SDK" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        <span class="md-nav__icon md-icon"></span>
+        Android SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/installing/" class="md-nav__link">
+      Cài đặt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/map/" class="md-nav__link">
+      Ví dụ Hiển thị bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/map-layer/" class="md-nav__link">
+      Ví dụ Thêm các lớp bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/geojson-layer/" class="md-nav__link">
+      Ví dụ Thêm GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/search/" class="md-nav__link">
+      Ví dụ Tìm kiếm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/direction/" class="md-nav__link">
+      Ví dụ Chỉ đường
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vi-du-reverse-mot-ia-iem" class="md-nav__link">
+    Ví dụ reverse một địa điểm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phan-hoi" class="md-nav__link">
+    Phản hồi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cac-ma-loi-cua-api-reverse" class="md-nav__link">
+    Các mã lỗi của API Reverse
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="api-reverse">API Reverse</h1>
+<p>Cho phép truy vấn địa điểm, thông tin chi tiết từ thông tin toạ độ địa lý</p>
+<p>Thông tin về chi phí sử dụng dịch vụ vui lòng xem tại <a href="/APIs/account/price">Thông tin bảng giá dịch vụ</a>.</p>
+<pre><code>GET https://apis.wemap.asia/geocode-1/reverse?point.lat={VĨ_ĐỘ_ĐỊA_ĐIỂM_CẦN_TRUY_VẤN}&amp;point.lon={KINH_ĐỘ_ĐỊA_ĐIỂM_CẦN_TRUY_VẤN}&amp;key={API_KEY_CỦA_BẠN}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Thông số bắt buộc</th>
+<th>Miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>point.lat</code></td>
+<td>Vĩ độ của địa điểm cần truy vấn</td>
+</tr>
+<tr>
+<td><code>point.lon</code></td>
+<td>Kinh độ của địa điểm cần truy vấn</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>API key của bạn. Cách khởi tạo một API key xem tại <a href="/APIs/account/key">đây</a>.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Thông số tuỳ chọn</th>
+<th>Kiểu giá trị</th>
+<th>Miêu tả</th>
+<th>Mặc định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size</code></td>
+<td>integer</td>
+<td>Giới hạn số lượng kết quả. Nằm trong khoảng từ <code>1</code> đến <code>25</code></td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vi-du-reverse-mot-ia-iem">Ví dụ reverse một địa điểm</h3>
+<pre><code># Tìm kiếm địa điểm có tọa độ vĩ độ 21.031772 và kinh độ 105.799508
+$ curl &quot;https://apis.wemap.asia/geocode-1/reverse?point.lat=21.031772&amp;point.lon=105.799508&amp;key={API_KEY_CỦA_BẠN}&quot;
+</code></pre>
+<h3 id="phan-hoi">Phản hồi</h3>
+<p>Phản hồi là danh sách các kết quả phù hợp với truy vấn ở định dạng JSON.</p>
+<table>
+<thead>
+<tr>
+<th>Trường</th>
+<th>Kiểu dữ liệu</th>
+<th>Miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>features</code></td>
+<td><code>Mảng</code></td>
+<td>Danh sách các kết quả tìm kiếm theo định dạng <a href="/APIs/account/price">FeatureCollection</a></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>Chuỗi</code></td>
+<td>Kiểu dữ liệu trả về. Hiện tại <code>FeatureCollection</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-json">{
+    &quot;geocoding&quot;:{
+        &quot;version&quot;:&quot;0.2&quot;,
+        &quot;attribution&quot;:&quot;http://over.wemap.vn:3100/attribution&quot;,
+        &quot;query&quot;:{
+            &quot;size&quot;:10,
+            &quot;private&quot;:false,
+            &quot;point.lat&quot;:21.031772,
+            &quot;point.lon&quot;:105.799508,
+            &quot;boundary.circle.lat&quot;:21.031772,
+            &quot;boundary.circle.lon&quot;:105.799508,
+            &quot;lang&quot;:{
+                &quot;name&quot;:&quot;English&quot;,
+                &quot;iso6391&quot;:&quot;en&quot;,
+                &quot;iso6393&quot;:&quot;eng&quot;,
+                &quot;via&quot;:&quot;header&quot;,
+                &quot;defaulted&quot;:false
+            },
+            &quot;querySize&quot;:20
+        },
+        &quot;warnings&quot;:[
+            &quot;Invalid Parameter: key&quot;
+        ],
+        &quot;engine&quot;:{
+            &quot;name&quot;:&quot;WeMap&quot;,
+            &quot;author&quot;:&quot;WeMap&quot;,
+            &quot;version&quot;:&quot;1.0&quot;
+        },
+        &quot;timestamp&quot;:1604393952016
+    },
+    &quot;type&quot;:&quot;FeatureCollection&quot;,
+    &quot;features&quot;:[
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799508,
+                    21.031772
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875015&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:venue:node/4875015&quot;,
+                &quot;layer&quot;:&quot;venue&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875015&quot;,
+                &quot;name&quot;:&quot;Cửa hàng thời trang Venice&quot;,
+                &quot;housenumber&quot;:&quot;135&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:1,
+                &quot;distance&quot;:0,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;Cửa hàng thời trang Venice, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799508,
+                    21.031772
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875015&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:address:node/4875015&quot;,
+                &quot;layer&quot;:&quot;address&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875015&quot;,
+                &quot;name&quot;:&quot;135 Đường Cầu Giấy&quot;,
+                &quot;housenumber&quot;:&quot;135&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:1,
+                &quot;distance&quot;:0,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;135 Đường Cầu Giấy, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799527,
+                    21.031753
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875021&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:venue:node/4875021&quot;,
+                &quot;layer&quot;:&quot;venue&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875021&quot;,
+                &quot;name&quot;:&quot;Cửa hàng giày da Hà Nội&quot;,
+                &quot;housenumber&quot;:&quot;133&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.003,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;Cửa hàng giày da Hà Nội, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799527,
+                    21.031753
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875021&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:address:node/4875021&quot;,
+                &quot;layer&quot;:&quot;address&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875021&quot;,
+                &quot;name&quot;:&quot;133 Đường Cầu Giấy&quot;,
+                &quot;housenumber&quot;:&quot;133&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.003,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;133 Đường Cầu Giấy, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799537,
+                    21.031763
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875027&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:address:node/4875027&quot;,
+                &quot;layer&quot;:&quot;address&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875027&quot;,
+                &quot;name&quot;:&quot;131 Đường Cầu Giấy&quot;,
+                &quot;housenumber&quot;:&quot;131&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.003,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;131 Đường Cầu Giấy, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799537,
+                    21.031763
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875027&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:venue:node/4875027&quot;,
+                &quot;layer&quot;:&quot;venue&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875027&quot;,
+                &quot;name&quot;:&quot;Cửa hàng ảnh viện áo cưới Sophia&quot;,
+                &quot;housenumber&quot;:&quot;131&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.003,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;Cửa hàng ảnh viện áo cưới Sophia, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.79958,
+                    21.03176
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875033&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:address:node/4875033&quot;,
+                &quot;layer&quot;:&quot;address&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875033&quot;,
+                &quot;name&quot;:&quot;129 Đường Cầu Giấy&quot;,
+                &quot;housenumber&quot;:&quot;129&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.008,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;129 Đường Cầu Giấy, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.79958,
+                    21.03176
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875033&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:venue:node/4875033&quot;,
+                &quot;layer&quot;:&quot;venue&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875033&quot;,
+                &quot;name&quot;:&quot;Cửa hàng thời trang Viettien&quot;,
+                &quot;housenumber&quot;:&quot;129&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.008,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;Cửa hàng thời trang Viettien, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799435,
+                    21.031797
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875009&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:venue:node/4875009&quot;,
+                &quot;layer&quot;:&quot;venue&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875009&quot;,
+                &quot;name&quot;:&quot;Cửa hàng giày dép Tùng Moscow&quot;,
+                &quot;housenumber&quot;:&quot;137&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.008,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;Cửa hàng giày dép Tùng Moscow, Quan Hoa, Vietnam&quot;
+            }
+        },
+        {
+            &quot;type&quot;:&quot;Feature&quot;,
+            &quot;geometry&quot;:{
+                &quot;type&quot;:&quot;Point&quot;,
+                &quot;coordinates&quot;:[
+                    105.799435,
+                    21.031797
+                ]
+            },
+            &quot;properties&quot;:{
+                &quot;id&quot;:&quot;node/4875009&quot;,
+                &quot;gid&quot;:&quot;openstreetmap:address:node/4875009&quot;,
+                &quot;layer&quot;:&quot;address&quot;,
+                &quot;source&quot;:&quot;openstreetmap&quot;,
+                &quot;source_id&quot;:&quot;node/4875009&quot;,
+                &quot;name&quot;:&quot;137 Đường Cầu Giấy&quot;,
+                &quot;housenumber&quot;:&quot;137&quot;,
+                &quot;street&quot;:&quot;Đường Cầu Giấy&quot;,
+                &quot;confidence&quot;:0.9,
+                &quot;distance&quot;:0.008,
+                &quot;accuracy&quot;:&quot;point&quot;,
+                &quot;country&quot;:&quot;Vietnam&quot;,
+                &quot;country_gid&quot;:&quot;whosonfirst:country:18400000&quot;,
+                &quot;country_a&quot;:&quot;VNM&quot;,
+                &quot;region&quot;:&quot;Ha Noi&quot;,
+                &quot;region_gid&quot;:&quot;whosonfirst:region:18410000&quot;,
+                &quot;region_a&quot;:&quot;HN&quot;,
+                &quot;county&quot;:&quot;Cau Giay&quot;,
+                &quot;county_gid&quot;:&quot;whosonfirst:county:18411300&quot;,
+                &quot;locality&quot;:&quot;Quan Hoa&quot;,
+                &quot;locality_gid&quot;:&quot;whosonfirst:locality:18411306&quot;,
+                &quot;continent&quot;:&quot;Asia&quot;,
+                &quot;continent_gid&quot;:&quot;whosonfirst:continent:10000000&quot;,
+                &quot;label&quot;:&quot;137 Đường Cầu Giấy, Quan Hoa, Vietnam&quot;
+            }
+        }
+    ],
+    &quot;bbox&quot;:[
+        105.799435,
+        21.031753,
+        105.79958,
+        21.031797
+    ]
+}
+</code></pre>
+<h2 id="cac-ma-loi-cua-api-reverse">Các mã lỗi của API Reverse</h2>
+<table>
+<thead>
+<tr>
+<th>Trường <code>message</code> trong phần thân phản hồi</th>
+<th>Mã lỗi HTTP</th>
+<th>Miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Lỗi xác thực - Thiếu API key</code></td>
+<td><code>401</code></td>
+<td>Thông số <code>key</code> là bắt buộc</td>
+</tr>
+<tr>
+<td><code>Lỗi xác thực - Sai API key</code></td>
+<td><code>401</code></td>
+<td>Kiểm tra lại thông số <code>key</code></td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../search/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                API Search
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../autocomplete/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                API Autocomplete
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2020 © WeMap
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

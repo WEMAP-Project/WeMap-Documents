@@ -1,0 +1,1081 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>WeMap - Tài liệu WeMap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wemap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Tài liệu WeMap" class="md-header-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tài liệu WeMap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              WeMap
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tài liệu WeMap" class="md-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tài liệu WeMap
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Trang chủ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      WeMap Web SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap Web SDK" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap Web SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        WeMap
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      WeMap
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cac-tham-so-khoi-tao" class="md-nav__link">
+    Các tham số khởi tạo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cac-ham" class="md-nav__link">
+    Các hàm
+  </a>
+  
+    <nav class="md-nav" aria-label="Các hàm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addcontrolcontrol-position" class="md-nav__link">
+    addControl(control, position?)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removecontrolcontrol" class="md-nav__link">
+    removeControl(control)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addimageid-image-options" class="md-nav__link">
+    addImage(id, image, options)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadimageurl-callback" class="md-nav__link">
+    loadImage(url, callback)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wegeocoder/" class="md-nav__link">
+      WeGeocoder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wedirections/" class="md-nav__link">
+      WeDirections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wefilter/" class="md-nav__link">
+      WeFilterControl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GeoJSON/" class="md-nav__link">
+      GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../marker/" class="md-nav__link">
+      Marker
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      WeMap APIs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap APIs" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap APIs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Người dùng
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Người dùng" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Người dùng
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/account/account/" class="md-nav__link">
+      Tài khoản
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/account/key/" class="md-nav__link">
+      API Key
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/account/analytics/" class="md-nav__link">
+      Thống kê
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Hiển thị Bản đồ
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hiển thị Bản đồ" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
+        Hiển thị Bản đồ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/maps/raster-tiles/" class="md-nav__link">
+      Raster tiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/maps/vector-tiles/" class="md-nav__link">
+      Vector tiles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Địa điểm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Địa điểm" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Địa điểm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/geocode/search/" class="md-nav__link">
+      API Search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/geocode/reverse/" class="md-nav__link">
+      API Reverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/geocode/autocomplete/" class="md-nav__link">
+      API Autocomplete
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/geocode/pip/" class="md-nav__link">
+      API Địa danh hành chỉnh
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Chỉ đường
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Chỉ đường" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        <span class="md-nav__icon md-icon"></span>
+        Chỉ đường
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/routing/routing/" class="md-nav__link">
+      API dẫn đường
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/routing/bus/" class="md-nav__link">
+      API dẫn đường cho bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      Android SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Android SDK" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        <span class="md-nav__icon md-icon"></span>
+        Android SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/android-sdk/installing/" class="md-nav__link">
+      Cài đặt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/android-sdk/map/" class="md-nav__link">
+      Ví dụ Hiển thị bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/android-sdk/map-layer/" class="md-nav__link">
+      Ví dụ Thêm các lớp bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/android-sdk/geojson-layer/" class="md-nav__link">
+      Ví dụ Thêm GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/android-sdk/search/" class="md-nav__link">
+      Ví dụ Tìm kiếm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../APIs/android-sdk/direction/" class="md-nav__link">
+      Ví dụ Chỉ đường
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cac-tham-so-khoi-tao" class="md-nav__link">
+    Các tham số khởi tạo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cac-ham" class="md-nav__link">
+    Các hàm
+  </a>
+  
+    <nav class="md-nav" aria-label="Các hàm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addcontrolcontrol-position" class="md-nav__link">
+    addControl(control, position?)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removecontrolcontrol" class="md-nav__link">
+    removeControl(control)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addimageid-image-options" class="md-nav__link">
+    addImage(id, image, options)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadimageurl-callback" class="md-nav__link">
+    loadImage(url, callback)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="wemap">WeMap</h1>
+<p>Đối tượng WeMap biểu diễn một bản đồ. Bạn tạo một đối tượng WeMap với key để sử dụng API, chỉ định một phần tử HTML chứa bản đồ và các lựa chọn khác.<br />
+WeMap GL JS khởi tạo bản đồ trên trang web và trả về đối tượng WeMap.</p>
+<h3 id="cac-tham-so-khoi-tao">Các tham số khởi tạo</h3>
+<p><code>options</code> (<strong><a href="">Object</a></strong>)</p>
+<table>
+<thead>
+<tr>
+<th>Tên</th>
+<th>Kiểu dữ liệu</th>
+<th>Miêu tả</th>
+<th>Giá trị mặc định</th>
+<th>Bắt buộc có?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>options.key</code></td>
+<td><code>string</code></td>
+<td>Bản đồ sẽ sử dụng key này.</td>
+<td></td>
+<td>có</td>
+</tr>
+<tr>
+<td><code>options.container</code></td>
+<td><a href="https://developer.mozilla.org/docs/Web/HTML/Element"><code>HTMLElement</code></a> or <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String"><code>string</code></a></td>
+<td>Phần tử HTML mà WeMap GL JS sẽ kết xuất bản đồ, hoặc <code>id</code> của phần tử đó. Phần tử này không được có phần tử con nào.</td>
+<td></td>
+<td>có</td>
+</tr>
+<tr>
+<td><code>options.style</code></td>
+<td><code>string</code></td>
+<td>Kiểu dáng của bản đồ. Các lựa chọn: <code>default</code>, <code>bright</code>, <code>dark</code></td>
+<td><code>default</code></td>
+<td>không</td>
+</tr>
+<tr>
+<td><code>options.center</code></td>
+<td><code>LngLatLike</code></td>
+<td>Điểm trung tâm khi khởi tạo của bản đồ.</td>
+<td><code>[105.8550736, 21.0283243]</code> (Toạ độ của Hà Nội)</td>
+<td>không</td>
+</tr>
+<tr>
+<td><code>options.zoom</code></td>
+<td><code>number</code></td>
+<td>Độ phóng đại khi khởi tạo của bản đồ</td>
+<td><code>10</code></td>
+<td>không</td>
+</tr>
+<tr>
+<td><code>options.reverse</code></td>
+<td><code>boolean</code></td>
+<td>Nếu <code>true</code>, bật tính năng reverse khi nhấn chuột trái, bật tính năng menu khi nhấn chuột phải. Biểu tượng chuột sẽ thay đổi khi di chuyển chuột qua icon của các địa điểm POI và hiển thị thông tin chi tiết của địa điểm khi nhấn vào.</td>
+<td><code>false</code></td>
+<td>không</td>
+</tr>
+<tr>
+<td><code>options.traffic</code></td>
+<td><code>boolean</code></td>
+<td>Nếu <code>true</code>, sẽ bật layer bản đồ traffic.</td>
+<td><code>false</code></td>
+<td>không</td>
+</tr>
+<tr>
+<td><code>options.urlController</code></td>
+<td><code>boolean</code></td>
+<td>Nếu <code>true</code>, tham số URL trên thanh địa chỉ sẽ được cập nhật tương ứng khi các tính năng hoạt động.</td>
+<td><code>true</code></td>
+<td>không</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ví dụ</strong></p>
+<pre><code class="language-javascript">var wemap = new wemapgl.WeMap({
+    container: 'map',
+    key: 'YOUR-WEMAP-KEY-HERE',
+    style: 'bright',
+    center: [105.1, 21.0],
+    zoom: 13,
+    // Turn on urlController
+    urlController: &quot;true&quot;,
+    // Turn on reverse
+    reverse: true,
+    // Turn on traffic
+    traffic: true
+});
+</code></pre>
+<h3 id="cac-ham">Các hàm</h3>
+<h4 id="addcontrolcontrol-position"><code>addControl(control, position?)</code></h4>
+<p>Thêm một <code>IControl</code> vào bản đồ và thực hiện lời gọi <code>control.onAdd(this)</code>.<br />
+<strong>Các tham số</strong><br />
+<strong><code>control</code></strong> (<a href=""><code>IControl</code></a>) <code>IControl</code> cần thêm vào.<br />
+<strong><code>position</code></strong> (<a href=""><code>string</code></a>?) vị trí mà control sẽ được thêm vào. Các lựa chọn: <code>'top-left'</code> , <code>'top-right'</code> , <code>'bottom-left'</code> , và <code>'bottom-right'</code> . Mặc định là <code>'top-right'</code>.<br />
+<strong>Trả về</strong><br />
+<a href="#wemap"><code>WeMap</code></a>: <code>this</code><br />
+<strong>Ví dụ</strong></p>
+<pre><code class="language-javascript">// Thêm một control vào bản đồ
+map.addControl(new wemapgl.NavigationControl());
+</code></pre>
+<hr />
+<h4 id="removecontrolcontrol"><code>removeControl(control)</code></h4>
+<p>Xóa một control khỏi Map.<br />
+<strong>Các tham số</strong><br />
+<strong><code>control</code></strong> (<a href=""><code>IControl</code></a>) The <code>IControl</code> to remove.<br />
+<strong>Trả về</strong><br />
+<a href="#wemap"><code>WeMap</code></a>: <code>this</code><br />
+<strong>Ví dụ</strong>  </p>
+<pre><code class="language-javascript">// Định nghĩa một control
+var navigation = new wemapgl.NavigationControl();
+// Thêm control này vào bản đồ
+map.addControl(navigation);
+// Xoá control này khỏi bản đò
+map.removeControl(navigation);
+</code></pre>
+<hr />
+<h4 id="addimageid-image-options"><code>addImage(id, image, options)</code></h4>
+<p>Thêm 1 hình ảnh hoặc 1 icon vào bản đồ.<br />
+<strong>Các tham số</strong><br />
+<code>id</code> (<a href="[String - JavaScript | MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)">string</a>) ID của hình ảnh. <br />
+<code>image</code> ((<a href="https://developer.mozilla.org/docs/Web/API/HTMLImageElement">HTMLImageElement</a> | <code>ImageBitmap</code> | <code>ImageData</code> | {<code>width</code>: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, <code>height</code>: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, <code>data</code>: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray">Uint8ClampedArray</a>)} | <a href="https://docs.mapbox.com/mapbox-gl-js/api/properties/#styleimageinterface">StyleImageInterface</a>)). Hình ảnh là một <code>HTMLImageElement</code> , <code>ImageData</code> , <code>ImageBitmap</code> hoặc Object with có chứa <code>width</code> , <code>height</code> , và dữ liệu thuộc tính có cùng định dạng với với <code>ImageData</code>.<br />
+<strong>Ví dụ</strong></p>
+<p><em>Thêm 1 hình ảnh</em></p>
+<pre><code class="language-javascript">map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+    if (error) throw error;
+    if (!map.hasImage('cat')) map.addImage('cat', image);
+});
+</code></pre>
+<p><em>Thêm 1 hình ảnh vào bản đồ</em></p>
+<pre><code class="language-javascript">// Thực hiện action khi map load
+map.on('load', function () {
+    // Tải ảnh từ nguồn bên ngoài, ảnh nguồn bên ngoài phải hỗ trợ CORS
+    map.loadImage(
+        'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
+        function (error, image) {
+            if (error) throw error;
+            map.addImage('cat', image);
+            map.addSource('cat-image', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [0, 0]
+                            }
+                        }
+                    ]
+                }
+            });
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'cat-image',
+                'layout': {
+                    'icon-image': 'cat',
+                    'icon-size': 0.25
+                }
+            });
+        }
+    );
+});
+</code></pre>
+<hr />
+<h4 id="loadimageurl-callback"><code>loadImage(url, callback)</code></h4>
+<p>Tải ảnh từ nguồn bên ngoài, ảnh nguồn bên ngoài phải hỗ trợ CORS.<br />
+<strong>Các tham số</strong>  </p>
+<p><code>url</code> (<a href="[String - JavaScript | MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)">string</a>) URL của hình ảnh. Định dạng của hình ảnh phải ở <code>png</code>, <code>webp</code>, hoặc <code>jpg</code>.<br />
+<code>callback</code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>) Hàm <code>callback(error, data)</code> được gọi khi việc tải ảnh thành công hoặc có lỗi.  </p>
+<pre><code class="language-javascript">// Tải hình ảnh từ nguồn bên ngoài.
+map.loadImage('http://placekitten.com/50/50', function(error, image) {
+    if (error) throw error;
+    // Thêm ảnh đã add vào bản đồ với ID là 'kitten'.
+    map.addImage('kitten', image);
+});
+</code></pre>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Giới thiệu
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../wegeocoder/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                WeGeocoder
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2020 © WeMap
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

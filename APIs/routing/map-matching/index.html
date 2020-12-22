@@ -1,0 +1,985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Map matching API - Tài liệu WeMap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#map-matching-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Tài liệu WeMap" class="md-header-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tài liệu WeMap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Map matching API
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Tài liệu WeMap" class="md-nav__button md-logo" aria-label="Tài liệu WeMap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tài liệu WeMap
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
+      Trang chủ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      WeMap Web SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap Web SDK" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap Web SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wemap/" class="md-nav__link">
+      WeMap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wegeocoder/" class="md-nav__link">
+      WeGeocoder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wedirections/" class="md-nav__link">
+      WeDirections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/wefilter/" class="md-nav__link">
+      WeFilterControl
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/GeoJSON/" class="md-nav__link">
+      GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../SDK/marker/" class="md-nav__link">
+      Marker
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      WeMap APIs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="WeMap APIs" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        WeMap APIs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" class="md-nav__link">
+      Giới thiệu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Người dùng
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Người dùng" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Người dùng
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../account/account/" class="md-nav__link">
+      Tài khoản
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../account/key/" class="md-nav__link">
+      API Key
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../account/analytics/" class="md-nav__link">
+      Thống kê
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Hiển thị Bản đồ
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hiển thị Bản đồ" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
+        Hiển thị Bản đồ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../maps/raster-tiles/" class="md-nav__link">
+      Raster tiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../maps/vector-tiles/" class="md-nav__link">
+      Vector tiles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Địa điểm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Địa điểm" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Địa điểm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../geocode/search/" class="md-nav__link">
+      API Search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../geocode/reverse/" class="md-nav__link">
+      API Reverse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../geocode/autocomplete/" class="md-nav__link">
+      API Autocomplete
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../geocode/pip/" class="md-nav__link">
+      API Địa danh hành chỉnh
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Chỉ đường
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Chỉ đường" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        <span class="md-nav__icon md-icon"></span>
+        Chỉ đường
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../routing/" class="md-nav__link">
+      API dẫn đường
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bus/" class="md-nav__link">
+      API dẫn đường cho bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      Android SDK
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Android SDK" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        <span class="md-nav__icon md-icon"></span>
+        Android SDK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/installing/" class="md-nav__link">
+      Cài đặt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/map/" class="md-nav__link">
+      Ví dụ Hiển thị bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/map-layer/" class="md-nav__link">
+      Ví dụ Thêm các lớp bản đồ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/geojson-layer/" class="md-nav__link">
+      Ví dụ Thêm GeoJSON
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/search/" class="md-nav__link">
+      Ví dụ Tìm kiếm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../android-sdk/direction/" class="md-nav__link">
+      Ví dụ Chỉ đường
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cau-truc-tep-tin-gpx-on-gian" class="md-nav__link">
+    Cấu trúc tệp tin GPX đơn giản
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-du-matching-file-gpx-ben-tren" class="md-nav__link">
+    Ví dụ Matching file GPX bên trên
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phan-hoi" class="md-nav__link">
+    Phản hồi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cac-ma-loi-cua-api-tim-kiem" class="md-nav__link">
+    Các mã lỗi của API Tìm kiếm
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="map-matching-api">Map matching API</h1>
+<p>Map matching API giúp bạn có thể biến tập tin GPX (lưu trữ nhật ký GPS) thành thông tin tuyến đường chính xác để phục vụ một số công việc như: làm sạch dữ liệu, thêm thông tin cho dữ liệu như độ cao, thêm chỉ dẫn cho tuyến đường,...</p>
+<p>Thông tin về chi phí sử dụng dịch vụ vui lòng xem tại <a href="/APIs/account/price">Thông tin bảng giá dịch vụ</a>.</p>
+<pre><code>POST &quot;https://routing.geocode.vn/match?key={API_KEY_CỦA_BẠN}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Thông số bắt buộc</th>
+<th>Loại dữ liệu</th>
+<th>Miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td><code>Chuỗi</code></td>
+<td>API key của bạn. Cách khởi tạo một API key xem tại <a href="/APIs/account/key">đây</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cau-truc-tep-tin-gpx-on-gian">Cấu trúc tệp tin GPX đơn giản</h3>
+<pre><code class="language-xml">&lt;gpx&gt;
+    &lt;trk&gt;
+        &lt;trkseg&gt;
+            &lt;trkpt lat=&quot;21.03664023419462&quot; lon=&quot;105.78187885461377&quot;&gt;
+                &lt;time&gt;2019-01-01T00:00:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036645241079803&quot; lon=&quot;105.78203978715466&quot;&gt;
+                &lt;time&gt;2019-01-01T00:01:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036645241079803&quot; lon=&quot;105.7821578043513&quot;&gt;
+                &lt;time&gt;2019-01-01T00:02:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036645241079803&quot; lon=&quot;105.78224363503979&quot;&gt;
+                &lt;time&gt;2019-01-01T00:03:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036650247964822&quot; lon=&quot;105.78234555898234&quot;&gt;
+                &lt;time&gt;2019-01-01T00:04:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.03664023419462&quot; lon=&quot;105.7824260252528&quot;&gt;
+                &lt;time&gt;2019-01-01T00:05:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036625213538066&quot; lon=&quot;105.78250649152325&quot;&gt;
+                &lt;time&gt;2019-01-01T00:06:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036620206652223&quot; lon=&quot;105.78260305104779&quot;&gt;
+                &lt;time&gt;2019-01-01T00:07:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036635227309272&quot; lon=&quot;105.78268888173625&quot;&gt;
+                &lt;time&gt;2019-01-01T00:08:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.03663022042376&quot; lon=&quot;105.78262987313794&quot;&gt;
+                &lt;time&gt;2019-01-01T00:09:00Z&lt;/time&gt;
+            &lt;/trkpt&gt;
+        &lt;/trkseg&gt;
+    &lt;/trk&gt;
+&lt;/gpx&gt;
+</code></pre>
+<p>| Thông số tuỳ chọn | Loại dữ liệu | Miêu tả
+| ------------ | ------------- 
+| <code>vehicle</code> | <code>Chuỗi</code> | Loại phương tiện di chuyển. Mặc định là <code>car</code> (ôtô). Các tuỳ chọn khác: <code>bike</code> (xe đạp), <code>foot</code>(đi bộ), <code>hike</code> (leo núi), <code>truck</code> (xe tái),<code>small_truck</code> (xe tái nhỏ)
+| <code>locale</code> | <code>Chuỗi</code> | Ngôn ngữ hướng dẫn chỉ đường. Mặc định <code>vi</code> (tiếng Việt). Các tuỳ chọn khác: <code>en</code> (tiếng Anh)
+| <code>elevation</code> | <code>Bu lì ừn</code> | Mặc định là <code>false</code>. Chọn <code>true</code> nếu bạn muốn thêm tham số độ cao số vào dẫn đường.
+| <code>details</code> | <code>Mảng các chuỗi</code> | Các thông tin chi tiết bạn muốn biết thêm về tuyến đường. Các thông tin bao gồm: <code>street_name</code> (tên đường), <code>max_speed</code> (vận tốc tối đa), <code>toll</code> (phí), <code>lanes</code> (số làn), <code>surface</code> (loại bề mặt đường)
+| <code>optimize</code> | <code>Bu lì ừn</code> | Sử dụng khi bạn muốn tối ưu khi được dẫn đường qua nhiều hơn 2 điểm. Mặc định là <code>false</code>. Chọn <code>true</code> nếu bạn không cần qua các điểm ở giữa lần lượt, chúng tôi sẽ tìm đường đi được tối ưu cho bạn khi phải qua tất cả các điểm đã chọn.
+| <code>instructions</code> | <code>Bu lì ừn</code> | Các chỉ dẫn việc di chuyển trên tuyến đường tìm được. Mặc định là <code>true</code>. Chọn <code>false</code> nếu bạn muốn ẩn các chỉ dẫn này.
+| <code>type</code> | <code>Chuỗi</code> | Loại dữ liệu bạn muốn trả về. Mặc định là <code>json</code>. Các lựa chọn khác: <code>gpx</code>.</p>
+<h3 id="vi-du-matching-file-gpx-ben-tren">Ví dụ Matching file GPX bên trên</h3>
+<pre><code class="language-bash">curl -X POST \
+  'https://routing.wemap.vn/match?locale=v&amp;gps_accuracy=20&amp;max_visited_nodes=3000&amp;type=json&amp;instructions=true&amp;details=street_name&amp;elevation=false&amp;vehicle=car&amp;key={API_KEY_CỦA_BẠN}' \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 1106' \
+  -H 'Content-Type: application/gpx+xml' \
+  -H 'Host: routing.wemap.vn' \
+  -H 'cache-control: no-cache' \
+  -d '&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;gpx&gt;
+    &lt;trk&gt;
+        &lt;trkseg&gt;
+            &lt;trkpt lat=&quot;21.03664023419462&quot; lon=&quot;105.78187885461377&quot;&gt;&lt;time&gt;2019-01-01T00:00:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036645241079803&quot; lon=&quot;105.78203978715466&quot;&gt;&lt;time&gt;2019-01-01T00:01:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036645241079803&quot; lon=&quot;105.7821578043513&quot;&gt;&lt;time&gt;2019-01-01T00:02:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036645241079803&quot; lon=&quot;105.78224363503979&quot;&gt;&lt;time&gt;2019-01-01T00:03:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036650247964822&quot; lon=&quot;105.78234555898234&quot;&gt;&lt;time&gt;2019-01-01T00:04:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.03664023419462&quot; lon=&quot;105.7824260252528&quot;&gt;&lt;time&gt;2019-01-01T00:05:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036625213538066&quot; lon=&quot;105.78250649152325&quot;&gt;&lt;time&gt;2019-01-01T00:06:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036620206652223&quot; lon=&quot;105.78260305104779&quot;&gt;&lt;time&gt;2019-01-01T00:07:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.036635227309272&quot; lon=&quot;105.78268888173625&quot;&gt;&lt;time&gt;2019-01-01T00:08:00Z&lt;/time&gt;&lt;/trkpt&gt;
+            &lt;trkpt lat=&quot;21.03663022042376&quot; lon=&quot;105.78262987313794&quot;&gt;&lt;time&gt;2019-01-01T00:09:00Z&lt;/time&gt;&lt;/trkpt&gt;
+        &lt;/trkseg&gt;
+    &lt;/trk&gt;
+&lt;/gpx&gt;
+
+'
+</code></pre>
+<h3 id="phan-hoi">Phản hồi</h3>
+<p>Phản hồi là thông tin về đường đi và chỉ dẫn ở định dạng JSON.</p>
+<table>
+<thead>
+<tr>
+<th>Trường</th>
+<th>Kiểu dữ liệu</th>
+<th>Miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paths</code></td>
+<td><code>Mảng</code></td>
+<td>Danh sách các tuyến đường tìm được dưới dạng <a href="/APIs/account/price">RouteResponsePath</a></td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>Đối tượng</code></td>
+<td>Thông tin thêm trả về tuỳ theo</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-json">{
+    &quot;info&quot;: {
+        &quot;took&quot;: 26,
+        &quot;copyrights&quot;:[
+            &quot;WeMap&quot;
+        ]
+    },
+    &quot;paths&quot;: [
+        {
+            &quot;distance&quot;: 77.923,
+            &quot;weight&quot;: 9.223372036854775E12,
+            &quot;time&quot;: 7791,
+            &quot;transfers&quot;: 0,
+            &quot;points_encoded&quot;: true,
+            &quot;bbox&quot;: [
+                105.78188,
+                21.036633,
+                105.78263,
+                21.036655
+            ],
+            &quot;points&quot;: &quot;avk_CuosdSBuC&quot;,
+            &quot;instructions&quot;: [
+                {
+                    &quot;distance&quot;: 77.923,
+                    &quot;heading&quot;: 92.41,
+                    &quot;sign&quot;: 0,
+                    &quot;interval&quot;: [
+                        0,
+                        1
+                    ],
+                    &quot;text&quot;: &quot;Tiếp tục đi theo Xuân Thủy&quot;,
+                    &quot;time&quot;: 7791,
+                    &quot;street_name&quot;: &quot;Xuân Thủy&quot;
+                },
+                {
+                    &quot;distance&quot;: 0.0,
+                    &quot;sign&quot;: 4,
+                    &quot;last_heading&quot;: 91.75919089020134,
+                    &quot;interval&quot;: [
+                        1,
+                        1
+                    ],
+                    &quot;text&quot;: &quot;Kết thúc&quot;,
+                    &quot;time&quot;: 0,
+                    &quot;street_name&quot;: &quot;&quot;
+                }
+            ],
+            &quot;legs&quot;: [],
+            &quot;details&quot;: {},
+            &quot;ascend&quot;: 0.0,
+            &quot;descend&quot;: 0.0,
+            &quot;snapped_waypoints&quot;: &quot;&quot;
+        }
+    ],
+    &quot;map_matching&quot;: {
+        &quot;original_distance&quot;: 90.6510645564374,
+        &quot;distance&quot;: 77.9227988478288,
+        &quot;time&quot;: 7791
+    }
+}
+</code></pre>
+<h2 id="cac-ma-loi-cua-api-tim-kiem">Các mã lỗi của API Tìm kiếm</h2>
+<table>
+<thead>
+<tr>
+<th>Trường <code>message</code> trong phần thân phản hồi</th>
+<th>Mã lỗi HTTP</th>
+<th>Miêu tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Yêu cầu của bạn không đúng</code></td>
+<td><code>400</code></td>
+<td>Khi bạn gửi lên yêu cầu quá ít hoặc quá nhiều <code>points</code></td>
+</tr>
+<tr>
+<td><code>Lỗi xác thực - Thiếu API key</code></td>
+<td><code>401</code></td>
+<td>Thông số <code>key</code> là bắt buộc</td>
+</tr>
+<tr>
+<td><code>Lỗi xác thực - Sai API key</code></td>
+<td><code>401</code></td>
+<td>Kiểm tra lại thông số <code>key</code></td>
+</tr>
+<tr>
+<td><code>Lỗi hệ thống</code></td>
+<td><code>500</code></td>
+<td>Chúng tôi đã nhận được thông tin và sẽ khắc phục trong thời gian sớm nhất.</td>
+</tr>
+<tr>
+<td><code>Lỗi lựa chọn phương tiện</code></td>
+<td><code>501</code></td>
+<td>Kiểm tra lại thông số <code>vehicle</code>. Hệ thống chỉ hỗ trợ các loại phương tiện đã liệt kê</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2020 © WeMap
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
