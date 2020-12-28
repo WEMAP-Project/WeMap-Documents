@@ -801,13 +801,13 @@
 <tr>
 <td><code>location.lat</code></td>
 <td>floating point number</td>
-<td>Vĩ độ của điểm ưu tiên kết quả tìm kiếm theo vị trí</td>
+<td>Vĩ độ của điểm ưu tiên kết quả tìm kiếm theo vị trí.</td>
 <td>Không</td>
 </tr>
 <tr>
 <td><code>location.lon</code></td>
 <td>floating point number</td>
-<td>Kinh độ của điểm ưu tiên kết quả tìm kiếm theo vị trí</td>
+<td>Kinh độ của điểm ưu tiên kết quả tìm kiếm theo vị trí.</td>
 <td>Không</td>
 </tr>
 <tr>
@@ -837,19 +837,19 @@
 <tr>
 <td><code>size</code></td>
 <td>integer</td>
-<td>Giới hạn số lượng kết quả. Nằm trong khoảng từ <code>1</code> đến <code>25</code></td>
+<td>Giới hạn số lượng kết quả. Nằm trong khoảng từ <code>1</code> đến <code>25</code>.</td>
 <td>10</td>
 </tr>
 <tr>
 <td><code>boundary.gid</code></td>
 <td>integer</td>
-<td>ID của vùng giới hạn kết quả tìm kiếm</td>
+<td>ID của vùng giới hạn kết quả tìm kiếm.</td>
 <td>Không</td>
 </tr>
 <tr>
 <td><code>categories</code></td>
 <td>string</td>
-<td>Giới hạn tìm kiếm theo loại địa điểm (xem ví dụ)</td>
+<td>Giới hạn tìm kiếm theo loại địa điểm. Danh sách loại địa điểm được hỗ trợ: <code>transport</code> (thuộc vận tải), <code>recreation</code> (thuộc giải trí), <code>religion</code> (thuộc tôn giáo), <code>education</code> (thuộc giáo dục), <code>entertainment</code> (thuộc vui chơi giải trí), <code>nightlife</code> (thuộc hoạt động ban đêm), <code>food</code> (thuộc ẩm thực), <code>government</code> (thuộc chính phủ), <code>professional</code> (thuộc tổ chức chuyên nghiệp), <code>finance</code> (thuộc tài chính), <code>health</code> (thuộc sức khỏe), <code>retail</code> (thuộc bán lẻ), <code>accommodation</code> (thuộc nhà ở), <code>industry</code> (thuộc công nghiệp), <code>natural</code> (thuộc tự nhiên).</td>
 <td>Không</td>
 </tr>
 </tbody>
@@ -858,12 +858,11 @@
 <pre><code># Tìm kiếm địa chỉ '135 Cầu Giấy', ưu tiên những vị trí gần địa điểm có vĩ độ 21.02466500456443 và kinh độ 105.79323291778566, giới hạn 10 kết quả
 $ curl &quot;https://apis.wemap.asia/geocode-1/search?text=135 cầu giấy&amp;location.lat=21.02466500456443&amp;location.lon=105.79323291778566&amp;size=10&amp;key={API_KEY_CỦA_BẠN}&quot;
 
-# Tìm kiếm địa chỉ 'Trường Đại học Sư phạm', giới hạn kết quả tại thành phố Hà Nội (mã vùng 18410000) và thành phố Hải Phòng (mã vùng 18404000), giới hạn 10 kết quả
+# Tìm kiếm địa chỉ 'Trường Đại học Sư phạm', giới hạn kết quả tại thành phố Hà Nội (mã vùng 18410000), giới hạn 10 kết quả
 # Vui lòng liên hệ với nhóm phát triển để biết thêm thông tin về mã vùng.
-$ curl &quot;https://apis.wemap.asia/geocode-1/search?text=Trường Đại học Sư Phạm&amp;boundary.gid=18404000,18410000&amp;size=10&amp;key={API_KEY_CỦA_BẠN}&quot;
+$ curl &quot;https://apis.wemap.asia/geocode-1/search?text=Trường Đại học Sư Phạm&amp;boundary.gid=18410000&amp;size=10&amp;key={API_KEY_CỦA_BẠN}&quot;
 
 # Tìm kiếm địa chỉ 'Nhà D1', thuộc lĩnh vực giáo dục ở thành phố Hà Nội (mã vùng 18410000), ưu tiên những vị trí gần địa điểm có vĩ độ 21.02466500456443 và kinh độ 105.79323291778566, giới hạn 10 kết quả
-# Danh sách loại địa điểm được hỗ trợ: transport, recreation, religion, education, entertainment, nightlife, food, government, professional, finance, health, retail, accommodation, industry, natural.
 $ curl &quot;https://apis.wemap.asia/geocode-1/search?text=Nhà D1&amp;categories=education&amp;boundary.gid=18410000&amp;location.lat=21.02466500456443&amp;location.lon=105.79323291778566&amp;size=10&amp;key={API_KEY_CỦA_BẠN}&quot;
 </code></pre>
 <h3 id="phan-hoi">Phản hồi</h3>
