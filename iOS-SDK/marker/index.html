@@ -870,21 +870,7 @@
 <pre><code class="language-swift">import CoreLocation
 import WeMapSDK
 
-class ViewController5: UIViewController, WeMapViewDelegate {
-
-    var wemapView: WeMapView?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let wemapView = WeMapView(frame: view.bounds)
-
-        wemapView.setCenter(CLLocationCoordinate2D(latitude: 21.0266469, longitude: 105.7615744), zoomLevel: 2, animated: false)
-        wemapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(wemapView)
-        wemapView.delegate = self
-    }
-
+class ViewController: UIViewController, WeMapViewDelegate {
 
     func WeMapViewDidFinishLoadingMap(_ wemapView: WeMapView) {
 
@@ -901,54 +887,87 @@ class ViewController5: UIViewController, WeMapViewDelegate {
             point.title = &quot;\(coordinate.latitude), \(coordinate.longitude)&quot;
             pointAnnotations.append(point)
         }
+        // Create a data source to hold the point data
+        let shapeSource = WeMapShapeSource(identifier: &quot;home-source&quot;, points: pointAnnotations)
 
-        wemapView.addAnnotations(pointAnnotations)
-        let annotation = WeMapPointAnnotation(CLLocationCoordinate2D(latitude: 21.0367899, longitude: 105.8346627))
-        annotation.title = &quot;Ho Chi Minh Mausoleum&quot;
-        annotation.subtitle = &quot;\(annotation.coordinate.latitude), \(annotation.coordinate.longitude)&quot;
+        // Create a style layer for the symbol
+        let shapeLayer = WeMapSymbolStyleLayer(identifier: &quot;home-symbols&quot;, source: shapeSource)
 
-        wemapView.addAnnotation(annotation)
+        // Add the image to the style's sprite
+        if let image = UIImage(named: &quot;icon-house&quot;) {
+            wemapView.setImage(image, forName: &quot;icon-house&quot;)
+        }
 
-        // Center the map on the annotation.
-        wemapView.setCenter(annotation.coordinate, zoomLevel: 10, animated: false)
+        // Tell the layer to use the image in the sprite
+        shapeLayer.iconImageName = NSExpression(forConstantValue: &quot;icon-house&quot;)
 
-        // Pop-up the callout view.
-        wemapView.selectAnnotation(annotation, animated: true, completionHandler: {})
+        // Add the source and style layer to the map
+        wemapView.addSource(shapeSource)
+        wemapView.addLayer(shapeLayer)
+
+        // Add a single tap gesture recognizer. This gesture requires the built-in WeMapView tap gestures (such as those for zoom and annotation selection) to fail.
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        for recognizer in wemapView.getGestureRecognizers() where recognizer is UITapGestureRecognizer {
+            singleTap.require(toFail: recognizer)
+        }
+        wemapView.addGestureRecognizer(singleTap)
     }
 
     func wemapView(_ wemapView: WeMapView, annotationCanShowCallout annotation: WeMapAnnotation) -&gt; Bool {
         return true
     }
 
-    func wemapView(_ wemapView: WeMapView, leftCalloutAccessoryViewFor annotation: WeMapAnnotation) -&gt; UIView? {
-        if (annotation.title! == &quot;Ho Chi Minh Mausoleum&quot;) {
-            // Callout height is fixed; width expands to fit its content.
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-            label.textAlignment = .right
-            label.textColor = UIColor(red: 0.81, green: 0.71, blue: 0.23, alpha: 1)
-            label.text = &quot;霊廟&quot;
+    var wemapView: WeMapView?
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-            return label
+        wemapView = WeMapView(frame: view.bounds)
+        wemapView?.setCenter(CLLocationCoordinate2D(latitude: 21.0266469, longitude: 105.7615744), zoomLevel: 4, animated: false)
+        wemapView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        //Hide callout default symbol
+        wemapView?.noCalloutMarker = true
+
+        view.addSubview(wemapView!)
+
+        wemapView?.delegate = self
+
+    }
+
+    // MARK: - Feature interaction
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            // Limit feature selection to just the following layer identifiers.
+            let layerIdentifiers: Set = [&quot;home-symbols&quot;]
+            // Try matching the exact point first.
+            let point = sender.location(in: sender.view!)
+            for pointAnnotation in wemapView?.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers) ?? []{
+                wemapView?.selectAnnotation(pointAnnotation, animated: false, completionHandler: {})
+                return
+            }
+
+            let touchCoordinate = wemapView?.convert(point, toCoordinateFrom: sender.view!)
+            let touchLocation = CLLocation(latitude: touchCoordinate?.latitude ?? 0.0, longitude: touchCoordinate?.longitude ?? 0.0)
+
+            // Otherwise, get all features within a rect the size of a touch (44x44).
+            let touchRect = CGRect(origin: point, size: .zero).insetBy(dx: -22.0, dy: -22.0)
+            let possibleFeatures = wemapView?.visibleFeatures(inCGRect: touchRect, styleLayerIdentifiers: Set(layerIdentifiers))
+
+            // Select the closest feature to the touch center.
+            let closestFeatures = possibleFeatures?.sorted(by: {
+                return CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude).distance(from: touchLocation) &lt; CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude).distance(from: touchLocation)
+            })
+            if let feature = closestFeatures?.first {
+                wemapView?.selectAnnotation(feature, animated: false, completionHandler: {})
+                return
+            }
+
+            // If no features were found, deselect the selected annotation, if any.
+            wemapView?.deselectFirstAnnotation(animated: true)
         }
-
-        return nil
-    }
-
-    func wemapView(_ wemapView: WeMapView, rightCalloutAccessoryViewFor annotation: WeMapAnnotation) -&gt; UIView? {
-        return UIButton(type: .detailDisclosure)
-    }
-
-    func wemapView(_ wemapView: WeMapView, annotation: WeMapAnnotation, calloutAccessoryControlTapped control: UIControl) {
-        // Hide the callout view.
-        wemapView.deselectAnnotation(annotation, animated: false)
-
-        // Show an alert containing the annotation's details
-        let alert = UIAlertController(title: annotation.title!!, message: &quot;A lovely (if touristy) place.&quot;, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: &quot;OK&quot;, style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-
     }
 }
+
 
 </code></pre>
                 
